@@ -1,0 +1,33 @@
+/* MovieReviews.module.css */
+.movieReviews {
+  padding: 1rem;
+}
+
+.loading {
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.error {
+  color: red;
+}
+
+.reviewsList {
+  list-style: none;
+  padding: 0;
+}
+
+.reviewItem {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.reviewItem h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.reviewItem p {
+  margin: 0.5rem 0 0;
+}
