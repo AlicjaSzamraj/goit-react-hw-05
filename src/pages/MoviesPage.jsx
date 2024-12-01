@@ -39,9 +39,12 @@ function MoviesPage() {
     const form = event.currentTarget;
     const newQuery = form.elements.search.value.trim();
 
-    if (newQuery) {
-      setSearchParams({ query: newQuery });
+    if (!newQuery) {
+      setError("You must enter a movie title.");
+      return;
     }
+
+    setSearchParams({ query: newQuery });
   };
 
   return (
