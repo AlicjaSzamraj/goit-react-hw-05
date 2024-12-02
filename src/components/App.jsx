@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./Navigation";
 import styles from "../styles/App.module.css";
+import { BallTriangle } from "react-loader-spinner";
 
 const HomePage = lazy(() => import("../pages/HomePage"));
 const MoviesPage = lazy(() => import("../pages/MoviesPage"));
@@ -15,9 +16,7 @@ export const App = () => {
     <div className={styles.container}>
       <Navigation />
 
-      <Suspense
-        fallback={<div className={styles.loading}>Loading page...</div>}
-      >
+      <Suspense fallback={<BallTriangle color="#00BFFF" height={80} width={80} />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
