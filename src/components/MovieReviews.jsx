@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { TailSpin } from "react-loader-spinner";
 import styles from "../styles/MovieReviews.module.css";
 
 function MovieReviews() {
@@ -32,7 +33,11 @@ function MovieReviews() {
   return (
     <div className={styles.movieReviews}>
       <h2>Reviews</h2>
-      {loading && <p className={styles.loading}>Loading...</p>}
+      {loading && (
+        <div className={styles.loader}>
+          <TailSpin height="50" width="50" color="#333" ariaLabel="loading" />
+        </div>
+      )}
       {error && <p className={styles.error}>{error}</p>}
       {reviews.length === 0 && !loading && !error && (
         <p>No reviews available.</p>

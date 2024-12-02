@@ -7,6 +7,13 @@
   color: #888;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .error {
   color: red;
 }
@@ -24,12 +31,13 @@
 
 .movieInfo {
   display: flex;
+  align-items: flex-start;
   gap: 2rem;
   margin-bottom: 2rem;
 }
 
 .poster {
-  max-width: 200px;
+  width: 200px;
   height: auto;
   border-radius: 10px;
 }

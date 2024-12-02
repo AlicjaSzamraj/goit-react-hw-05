@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { TailSpin } from "react-loader-spinner";
 import styles from "../styles/MovieCast.module.css";
 
 function MovieCast() {
@@ -32,7 +33,11 @@ function MovieCast() {
   return (
     <div className={styles.movieCast}>
       <h2>Cast</h2>
-      {loading && <p className={styles.loading}>Loading...</p>}
+      {loading && (
+        <div className={styles.loader}>
+          <TailSpin height="50" width="50" color="#333" ariaLabel="loading" />
+        </div>
+      )}
       {error && <p className={styles.error}>{error}</p>}
       {cast.length === 0 && !loading && !error && (
         <p>No cast information available.</p>
@@ -45,6 +50,7 @@ function MovieCast() {
                 src={`https://image.tmdb.org/t/p/w200/${member.profile_path}`}
                 alt={member.name}
                 className={styles.castImage}
+                loading="lazy"
               />
             ) : (
               <div className={styles.noImage}>No image available</div>
